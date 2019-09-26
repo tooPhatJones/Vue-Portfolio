@@ -1,0 +1,78 @@
+<template>
+  <div class="contactclass">
+    <h2>Contact me!</h2>
+    <h3>
+      Optionally, suggest your favorite book I have not read, after you have checked out my
+      <a routerLink="/books">reading history</a>.
+    </h3>
+    <div class="centered">
+      <table class="contactTable">
+        <tbody>
+          <tr>
+            <td>
+              <label class="label">Name:</label>
+            </td>
+            <td>
+              <input class="inputclass" [(ngModel)]="name" />
+              <div style="float: left;">*</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class="label">Phone:</label>
+            </td>
+            <td>
+              <input class="inputclass" [(ngModel)]="phone" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class="label">Email:</label>
+            </td>
+            <td>
+              <input class="inputclass" [(ngModel)]="email" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class="label">Message:</label>
+            </td>
+            <td>
+              <textarea class="inputclass textareaclass" [(ngModel)]="message" name="message"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class="label">Book Title:</label>
+            </td>
+            <td>
+              <input class="inputclass" [(ngModel)]="title" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class="label">Author:</label>
+            </td>
+            <td>
+              <input class="inputclass" [(ngModel)]="author" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button (click)="post()">Save</button>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "contact",
+  props: {
+    msg: String
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+</style>
