@@ -3,7 +3,9 @@
     <h2>Contact me!</h2>
     <h3>
       Optionally, suggest your favorite book I have not read, after you have checked out my
-      <a routerLink="/books">reading history</a>.
+      <a
+        routerLink="/books"
+      >reading history</a>.
     </h3>
     <div class="centered">
       <table class="contactTable">
@@ -13,7 +15,7 @@
               <label class="label">Name:</label>
             </td>
             <td>
-              <input class="inputclass" [(ngModel)]="name" />
+              <input class="inputclass" v-model="name" />
               <div style="float: left;">*</div>
             </td>
           </tr>
@@ -22,7 +24,7 @@
               <label class="label">Phone:</label>
             </td>
             <td>
-              <input class="inputclass" [(ngModel)]="phone" />
+              <input class="inputclass" v-model="phone" />
             </td>
           </tr>
           <tr>
@@ -30,7 +32,7 @@
               <label class="label">Email:</label>
             </td>
             <td>
-              <input class="inputclass" [(ngModel)]="email" />
+              <input class="inputclass" v-model="email" />
             </td>
           </tr>
           <tr>
@@ -38,7 +40,7 @@
               <label class="label">Message:</label>
             </td>
             <td>
-              <textarea class="inputclass textareaclass" [(ngModel)]="message" name="message"></textarea>
+              <textarea class="inputclass textareaclass" v-model="message" name="message"></textarea>
             </td>
           </tr>
           <tr>
@@ -46,7 +48,7 @@
               <label class="label">Book Title:</label>
             </td>
             <td>
-              <input class="inputclass" [(ngModel)]="title" />
+              <input class="inputclass" v-model="title" />
             </td>
           </tr>
           <tr>
@@ -54,19 +56,62 @@
               <label class="label">Author:</label>
             </td>
             <td>
-              <input class="inputclass" [(ngModel)]="author" />
+              <input class="inputclass" v-model="author" />
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-    <button (click)="post()">Save</button>
+    <button v-on:click="post">Save</button>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "contact",
+  data: function() {
+    return {
+      name: "",
+      phone: "",
+      email: "",
+      message: "",
+      title: "",
+      author: ""
+    };
+  },
+  methods: {
+    post: function() {
+      axios
+        .get(
+          'https://jzmjq2p2qe.execute-api.us-east-2.amazonaws.com/dev/?name="' +
+            this.name +
+            '" &email="' +
+            this.email +
+            '"&phonenumber="' +
+            this.phonenumber +
+            '" &message="' +
+            this.message +
+            '"&author="' +
+            this.author +
+            '"&title="' +
+            this.title +
+            '"'
+        )
+        .then(res => {
+          console.log("post fired");
+          this.name = "";
+          this.phone = "";
+          this.email = "";
+          this.message = "";
+          this.title = "";
+          this.author = "";
+          alert(
+            "Thanks for contacting me! Ill receive your message very soon!"
+          );
+        });
+    }
+  },
   props: {
     msg: String
   }
@@ -75,4 +120,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.centered {
+  display: flex;
+  justify-content: center;
+}
+
+.textareaclass {
+  width: 300px;
+  height: 75px;
+}
+
+.inputclass {
+  float: left;
+}
 </style>
