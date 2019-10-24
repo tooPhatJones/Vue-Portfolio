@@ -40,7 +40,7 @@
               <label class="label">Message:</label>
             </td>
             <td>
-              <textarea class="inputclass textareaclass" v-model="message" name="message"></textarea>
+              <textarea class="textareaclass" v-model="message" name="message"></textarea>
             </td>
           </tr>
           <tr>
@@ -125,12 +125,21 @@ export default {
   justify-content: center;
 }
 
+.contactTable {
+  background: #1a4c47;
+  border-radius: 5px;
+  padding: 45px;
+}
+
 .textareaclass {
   width: 300px;
   height: 75px;
+  border-radius: 3px;
 }
 
 .inputclass {
   float: left;
+  width: 80%;
+  border-radius: 3px;
 }
 </style>

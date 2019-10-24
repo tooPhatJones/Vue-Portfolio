@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div>
-      <img class="vuelogo" alt="Vue logo" src="./assets/darklogo.png" />
+      <img class="vuelogo" alt="Vue logo" src="./assets/logo.png" />
     </div>
 
     <router-link class="navlink" to="/about">Go to about</router-link>
@@ -30,8 +30,7 @@
 export default {
   name: "app",
 
-  components: {
-  }
+  components: {}
 };
 </script>
 
@@ -45,10 +44,19 @@ export default {
   color: #c0b299;
   margin-top: 60px;
 }
+
+
 .vuelogo {
-  width: 770px;
-  margin-bottom: -100px;
-  margin-top: -150px;
+  height: 130px;
+  margin-bottom: 30px;
+  margin-top: -40px;
+  overflow: hidden;
+  transition-duration: 0.8s;
+  transition-property: transform;
+}
+.vuelogo:hover {
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
 }
 
 body {
@@ -67,9 +75,8 @@ a {
 }
 
 .navlink:visited {
- color:#0846f2;
+  color: #0846f2;
 }
-
 
 @import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
 @import "../node_modules/ag-grid-community/dist/styles/ag-theme-balham.css";
