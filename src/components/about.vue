@@ -2,7 +2,7 @@
   <header class="App-header">
     <div class="wrapper">
       <div class="gridbox">
-        <img src class="mugshot" />
+        <img src="../assets/mugshot.jpg" class="mugshot" />
       </div>
       <div class="gridbox">
         <h1>Hi! My name is David Farley</h1>
@@ -40,5 +40,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.mugshot{
+  width: 390px;
+  margin-top: 32px;
+}
 </style>

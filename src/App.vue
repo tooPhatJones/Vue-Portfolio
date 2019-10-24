@@ -27,17 +27,10 @@
 </template>
 
 <script>
-import about from "./components/about.vue";
-import books from "./components/books.vue";
-import contact from "./components/contact.vue";
-
 export default {
   name: "app",
 
   components: {
-    about,
-    books,
-    contact
   }
 };
 </script>
